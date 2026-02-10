@@ -1,0 +1,236 @@
+{
+  "personalInfo": {
+    "name": "Shivam Kumar",
+    "title": "Data Analyst | Python Developer",
+    "location": "Delhi, India",
+    "phone": "+91 7979779685",
+    "email": "shivamkumar797977@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/shivamsavarn/",
+    "summary": "Proactive Python Backend Developer with expertise in building and enhancing API frameworks, migrating applications from Windows to cloud-native environments, and creating reusable endpoints to improve efficiency. Strong background in Data analytics and monitoring with Power BI, SQL, Splunk, and Python."
+  },
+
+  "experience": [
+    {
+      "title": "Systems Associate",
+      "duration": "Nov 2022 - Present",
+      "responsibilities": [
+        "Developing Python-based backend API frameworks",
+        "Migrating applications to cloud-native environments",
+        "Creating interactive Power BI dashboards",
+        "Automating data processing with Python",
+        "Deploying Splunk dashboards for enterprise clients"
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Executive MBA (Data Analytics & Data Science)",
+      "institution": "IIT Patna",
+      "status": "Expected Jan 2027"
+    },
+    {
+      "degree": "Master of Computer Applications",
+      "institution": "Chandigarh University",
+      "completion": "July 2024"
+    },
+    {
+      "degree": "Bachelor of Computer Applications",
+      "institution": "SOA University",
+      "completion": "June 2022"
+    }
+  ],
+
+  "skills": {
+    "dataAnalytics": ["Power BI", "Splunk", "Looker", "SQL", "Python", "Pandas", "NumPy"],
+    "cloudDevOps": ["Azure", "Docker", "API Gateway", "Git", "GitHub"],
+    "backend": ["Python", "FastAPI", "REST API"],
+    "frontend": ["HTML5", "CSS3", "React.js"],
+    "aiMl": ["LLMs", "Prompt Engineering", "GitHub Copilot"],
+    "tools": ["VS Code", "Splunk", "Bruno", "Windows Administration", "Active Directory"]
+  },
+
+  "certifications": [
+    {
+      "name": "PL-300 Power BI Data Analyst",
+      "provider": "Microsoft",
+      "id": "pl300"
+    },
+    {
+      "name": "DP-900 Azure Data Fundamentals",
+      "provider": "Microsoft",
+      "id": "dp900"
+    },
+    {
+      "name": "AI-900 Azure AI Fundamentals",
+      "provider": "Microsoft",
+      "id": "ai900"
+    },
+    {
+      "name": "AZ-900 Azure Fundamentals",
+      "provider": "Microsoft",
+      "id": "az900"
+    },
+    {
+      "name": "Google Cloud Digital Leader",
+      "provider": "Google",
+      "id": "gcp"
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "Power BI Analytics Dashboard",
+      "description": "Interactive business intelligence dashboard transforming raw data into insightful visual reports for monitoring KPIs and operational trends",
+      "technologies": ["Power BI", "SQL", "Python"]
+    },
+    {
+      "name": "Python API Framework",
+      "description": "Backend API framework with reusable endpoints, migrated from Windows to cloud-native environments using modern development practices",
+      "technologies": ["Python", "FastAPI", "Azure", "Docker"]
+    },
+    {
+      "name": "Splunk Monitoring System",
+      "description": "Real-time log monitoring and alerting system for enterprise cloud migration, reducing MTTR and enabling faster decision-making",
+      "technologies": ["Splunk", "Azure", "Monitoring"]
+    }
+  ],
+
+  "achievements": [
+    {
+      "title": "Infosys Rise Insta Award",
+      "description": "Recognized for contributions in backend API development and data analytics projects"
+    },
+    {
+      "title": "Manager Appreciation",
+      "description": "Received 2 formal appreciation mails for delivering accurate, high-quality work before deadlines"
+    }
+  ],
+
+  "whyHireMe": [
+    {
+      "title": "Proven Track Record",
+      "description": "Delivered high-quality solutions before deadlines, earning formal recognition and awards for exceptional performance in backend development and data analytics."
+    },
+    {
+      "title": "Technical Excellence",
+      "description": "Expert in modern technologies including Python, Azure, Power BI, and AI tools. Currently pursuing Executive MBA from IIT Patna to stay ahead of industry trends."
+    },
+    {
+      "title": "Business Impact",
+      "description": "Reduced MTTR through automation, created reusable API frameworks, and enabled data-driven decisions through interactive dashboards and cross-functional collaboration."
+    },
+    {
+      "title": "Team Player",
+      "description": "Strong collaborator with excellent communication skills, experienced in working with cross-functional teams and translating business requirements into technical solutions."
+    }
+  ],
+
+  "chatbotResponses": {
+    "greetings": [
+      "Hello! I'm Shivam Kumar's AI assistant. I can help you learn about Shivam's skills, experience, projects, and how to get in touch. What would you like to know?",
+      "Hi there! Welcome to Shivam Kumar's portfolio. Feel free to ask me about his experience, skills, projects, or contact information.",
+      "Hey! I'm here to help you learn more about Shivam Kumar. Ask me anything about his background, expertise, or work!"
+    ],
+    
+    "about": [
+      "Shivam Kumar is a Data Analyst and Python Developer based in Delhi, India. He specializes in building backend API frameworks, data analytics with Power BI, and cloud-native solutions. He's currently pursuing an Executive MBA from IIT Patna in Data Analytics & Data Science.",
+      "Shivam is a proactive Python Backend Developer with expertise in API development, cloud migration, and data analytics. He has strong skills in Power BI, SQL, Splunk, and Python, with a proven track record of delivering high-quality solutions."
+    ],
+
+    "skills": {
+      "general": "Shivam has expertise in Data Analytics (Power BI, Splunk, SQL), Backend Development (Python, FastAPI), Cloud & DevOps (Azure, Docker), Frontend (React.js, HTML, CSS), and AI/ML (LLMs, GitHub Copilot). Which area would you like to know more about?",
+      "python": "Shivam is highly skilled in Python, including FastAPI for backend development, Pandas and NumPy for data analysis, and automation scripting. He uses Python daily for building API frameworks and data processing.",
+      "powerbi": "Shivam is a certified Power BI Data Analyst (PL-300). He creates interactive dashboards that transform raw data into insightful visual reports for monitoring KPIs and operational trends.",
+      "azure": "Shivam has Azure certifications (AZ-900, DP-900, AI-900) and experience migrating applications to cloud-native environments on Azure. He works with Docker, API Gateway, and Azure services.",
+      "data": "Shivam excels in data analytics using Power BI, SQL, Splunk, and Python (Pandas, NumPy). He creates dashboards, automates data processing, and enables data-driven decision-making.",
+      "backend": "Shivam develops Python-based backend API frameworks using FastAPI, creates reusable endpoints, and has experience migrating applications from Windows to cloud-native environments."
+    },
+
+    "experience": [
+      "Shivam has been working as a Systems Associate since November 2022. He develops Python backend APIs, creates Power BI dashboards, automates data processing, and deploys Splunk monitoring systems for enterprise clients.",
+      "In his current role, Shivam focuses on backend API development with Python, cloud migration projects, Power BI analytics, and Splunk monitoring. He's recognized for delivering high-quality work before deadlines."
+    ],
+
+    "education": [
+      "Shivam holds a Master of Computer Applications from Chandigarh University (2024) and a Bachelor of Computer Applications from SOA University (2022). He's currently pursuing an Executive MBA in Data Analytics & Data Science from IIT Patna (expected 2027).",
+      "Shivam has strong academic credentials with an MCA and BCA, and he's enhancing his expertise with an Executive MBA from IIT Patna focusing on Data Analytics and Data Science."
+    ],
+
+    "certifications": [
+      "Shivam holds 5 professional certifications: Microsoft PL-300 (Power BI Data Analyst), DP-900 (Azure Data Fundamentals), AI-900 (Azure AI Fundamentals), AZ-900 (Azure Fundamentals), and Google Cloud Digital Leader.",
+      "Shivam is certified in Power BI, Azure (3 certifications), and Google Cloud, demonstrating his expertise in data analytics and cloud technologies."
+    ],
+
+    "projects": {
+      "general": "Shivam has worked on several impressive projects including a Power BI Analytics Dashboard, Python API Framework, and Splunk Monitoring System. Which project would you like to know more about?",
+      "powerbi": "The Power BI Analytics Dashboard is an interactive business intelligence solution that transforms raw data into insightful visual reports for monitoring KPIs and operational trends. Built using Power BI, SQL, and Python.",
+      "api": "The Python API Framework is a backend solution with reusable endpoints, migrated from Windows to cloud-native environments using Python, FastAPI, Azure, and Docker. It improves efficiency and follows modern development practices.",
+      "splunk": "The Splunk Monitoring System is a real-time log monitoring and alerting solution for enterprise cloud migration. It reduces MTTR and enables faster decision-making using Splunk and Azure."
+    },
+
+    "achievements": [
+      "Shivam has received the Infosys Rise Insta Award for his contributions in backend API development and data analytics. He's also received 2 formal appreciation mails from management for delivering accurate, high-quality work before deadlines.",
+      "Shivam's achievements include formal recognition through awards and appreciation for exceptional performance, proving his ability to deliver high-quality solutions consistently."
+    ],
+
+    "contact": [
+      "You can reach Shivam at:\n📧 Email: shivamkumar797977@gmail.com\n📱 Phone: +91 7979779685\n💼 LinkedIn: linkedin.com/in/shivamsavarn\n📍 Location: Delhi, India",
+      "To get in touch with Shivam:\nEmail: shivamkumar797977@gmail.com\nPhone: +91 7979779685\nLinkedIn: https://www.linkedin.com/in/shivamsavarn/"
+    ],
+
+    "hire": [
+      "You should hire Shivam because he has a proven track record of delivering high-quality solutions, technical excellence in modern technologies, creates business impact through automation and data-driven solutions, and is an excellent team player with strong communication skills.",
+      "Shivam brings: 1) Proven track record with awards and recognition, 2) Technical expertise in Python, Azure, Power BI, and AI, 3) Business impact through reduced MTTR and automation, 4) Strong collaboration and communication skills."
+    ],
+
+    "availability": [
+      "Shivam is currently working as a Systems Associate and is open to new opportunities. Please contact him directly to discuss availability and potential collaborations.",
+      "For information about Shivam's availability, please reach out via email at shivamkumar797977@gmail.com or call +91 7979779685."
+    ],
+
+    "location": [
+      "Shivam is based in Delhi, India.",
+      "Shivam Kumar is located in Delhi, India and is available for both remote and on-site opportunities."
+    ],
+
+    "default": [
+      "I'm not sure about that. You can ask me about Shivam's skills, experience, projects, education, certifications, achievements, or contact information.",
+      "I don't have specific information about that. Try asking about Shivam's technical skills, work experience, projects, or how to contact him.",
+      "That's outside my knowledge. I can help you with questions about Shivam's background, expertise, projects, or contact details. What would you like to know?"
+    ],
+
+    "thanks": [
+      "You're welcome! Feel free to reach out to Shivam directly if you'd like to discuss opportunities or collaborations.",
+      "Happy to help! Don't hesitate to contact Shivam at shivamkumar797977@gmail.com for further discussion.",
+      "Glad I could assist! You can connect with Shivam on LinkedIn or via email for more information."
+    ],
+
+    "goodbye": [
+      "Thanks for visiting! Feel free to contact Shivam at shivamkumar797977@gmail.com. Have a great day!",
+      "Goodbye! Don't forget to connect with Shivam on LinkedIn or reach out via email. Take care!",
+      "See you later! Shivam would love to hear from you at shivamkumar797977@gmail.com."
+    ]
+  },
+
+  "keywords": {
+    "greetings": ["hello", "hi", "hey", "greetings", "good morning", "good afternoon", "good evening"],
+    "about": ["about", "who", "tell me about", "introduce", "background", "summary", "profile"],
+    "skills": ["skills", "expertise", "technologies", "tech stack", "proficient", "know", "capable"],
+    "python": ["python", "fastapi", "pandas", "numpy", "backend", "api"],
+    "powerbi": ["power bi", "powerbi", "dashboard", "visualization", "bi", "analytics"],
+    "azure": ["azure", "cloud", "aws", "gcp", "docker", "devops"],
+    "data": ["data", "analytics", "sql", "database", "analysis"],
+    "experience": ["experience", "work", "job", "role", "position", "career", "working"],
+    "education": ["education", "degree", "study", "university", "college", "mba", "mca", "bca"],
+    "certifications": ["certification", "certified", "certificate", "credential"],
+    "projects": ["project", "portfolio", "work", "built", "created", "developed"],
+    "achievements": ["achievement", "award", "recognition", "appreciation", "accomplishment"],
+    "contact": ["contact", "reach", "email", "phone", "call", "message", "connect"],
+    "hire": ["hire", "why", "recruit", "employ", "choose", "select"],
+    "availability": ["available", "availability", "free", "open", "looking"],
+    "location": ["location", "where", "based", "live", "city"],
+    "thanks": ["thank", "thanks", "appreciate", "grateful"],
+    "goodbye": ["bye", "goodbye", "see you", "later", "exit", "quit"]
+  }
+}
