@@ -4,7 +4,7 @@ exports.handler = async (event) => {
   }
 
   const { message } = JSON.parse(event.body);
-  const HF_API_KEY = process.env.HF_API_KEY;
+  const HF_API_KEY = process.env.HF_API_KEY || '';
 
   const portfolioContext = `You are Shivam Kumar's AI assistant. Answer questions about him professionally.
 
