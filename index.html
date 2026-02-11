@@ -447,10 +447,15 @@
     .chat-message{margin-bottom:15px;padding:12px 16px;border-radius:12px;max-width:80%;word-wrap:break-word;white-space:pre-line;animation:fadeIn 0.3s}
     .chat-message.bot{background:white;color:#333;margin-right:auto;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
     .chat-message.user{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;margin-left:auto}
+    .typing-dots{display:inline-flex;gap:4px}
+    .typing-dots span{animation:blink 1.4s infinite;font-size:20px}
+    .typing-dots span:nth-child(2){animation-delay:0.2s}
+    .typing-dots span:nth-child(3){animation-delay:0.4s}
     @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes blink{0%,60%,100%{opacity:0.3}30%{opacity:1}}
     </style>
 
-    <script src="chatbot-simple.js"></script>
+    <script src="chatbot-hf.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
