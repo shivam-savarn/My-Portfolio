@@ -8,18 +8,18 @@ exports.handler = async (event) => {
 
   const portfolioContext = `You are Shivam Kumar's AI assistant. Answer questions about him professionally.
 
-ABOUT: Shivam Kumar - Data Analyst | Python Developer from Delhi, India
+ABOUT: Shivam Kumar - AI Developer | Python Developer from Delhi, India
 Email: shivamkumar797977@gmail.com | Phone: +91 7979779685
 
-EXPERIENCE: Systems Associate (Nov 2022-Present) - Python backend APIs, Power BI dashboards, Splunk monitoring
+EXPERIENCE: Senior System Associate at Infosys Ltd. (Oct 2022-Present) - Building Generative AI solutions, RAG-based chatbots, LLM evaluation pipelines, Python backend APIs, Azure cloud deployment
 
-EDUCATION: Executive MBA (IIT Patna 2027), MCA (Chandigarh 2024), BCA (SOA 2022)
+EDUCATION: Executive MBA Data Science (IIT Patna Dec 2026), MCA (Chandigarh 2024), BCA (SOA 2022)
 
-SKILLS: Power BI, SQL, Python, FastAPI, Azure, Docker, React, LLMs
+SKILLS: Python, LLMs, RAG, Prompt Engineering, Vector Embeddings, DeepEval, LangGraph, Machine Learning, SQL, FastAPI, Azure, Docker
 
-CERTIFICATIONS: PL-300, DP-900, AI-900, AZ-900, Google Cloud Digital Leader
+CERTIFICATIONS: Google Data Analytics Professional, DP-900, AI-900, Google Cloud Digital Leader, Infosys Certified Generative AI Professional
 
-PROJECTS: Power BI Dashboard, Python API Framework, Splunk Monitoring System
+PROJECTS: AI Portfolio Chatbot (RAG-based), LLM Evaluation Framework (DeepEval), Multi-Agent Workflow (LangGraph)
 
 Keep responses short and professional.`;
 
@@ -78,9 +78,10 @@ Provide a helpful, conversational response about Shivam. Keep it natural and fri
 
 function generateFallback(msg) {
   const lower = msg.toLowerCase();
-  if (lower.match(/^(hi|hello|hey)/)) return "Hello! 👋 I'm Shivam's AI assistant. What would you like to know?";
-  if (lower.includes('skill')) return "Shivam's expertise: Power BI, SQL, Python, FastAPI, Azure, Docker, React, and LLMs!";
-  if (lower.includes('experience')) return "Systems Associate since Nov 2022 - Python APIs, Power BI dashboards, Splunk monitoring.";
+  if (lower.match(/^(hi|hello|hey)/)) return "Hello! 👋 I'm Shivam's AI assistant. What would you like to know about his AI/GenAI expertise?";
+  if (lower.includes('skill')) return "Shivam's expertise: Python, LLMs, RAG Systems, Prompt Engineering, Vector Embeddings, DeepEval, LangGraph, Machine Learning, SQL, FastAPI, Azure!";
+  if (lower.includes('experience')) return "Senior System Associate at Infosys since Oct 2022 - Building GenAI solutions, RAG chatbots, LLM evaluation pipelines, Python APIs, Azure deployment.";
+  if (lower.includes('project')) return "AI Projects: RAG-based Portfolio Chatbot, LLM Evaluation Framework (DeepEval), Multi-Agent Workflow (LangGraph).";
   if (lower.includes('contact')) return "📧 shivamkumar797977@gmail.com | 📱 +91 7979779685";
-  return "I can tell you about Shivam's skills, experience, projects, or contact info!";
+  return "I can tell you about Shivam's AI/GenAI skills, experience, projects, or contact info!";
 }
