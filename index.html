@@ -453,6 +453,17 @@
             </div>
         </div>
     </div>
+    <!-- AI Greeting Bubble -->
+    <div style="position:fixed;bottom:100px;right:30px;background:white;padding:15px 20px;border-radius:25px;box-shadow:0 4px 20px rgba(0,0,0,0.15);z-index:1000;max-width:280px;animation:slideIn 0.5s ease-out">
+        <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:24px">🤖</span>
+            <div>
+                <p style="margin:0;font-weight:600;color:#667eea;font-size:14px">Hey! I'm Shivam's AI Assistant</p>
+                <p style="margin:5px 0 0 0;font-size:12px;color:#666">Ask me anything about Shivam!</p>
+            </div>
+        </div>
+    </div>
+    
     <button onclick="toggleChatbot()" style="position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border:none;color:white;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:1000">💬</button>
 
     <style>
@@ -465,9 +476,10 @@
     .typing-dots span:nth-child(3){animation-delay:0.4s}
     @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
     @keyframes blink{0%,60%,100%{opacity:0.3}30%{opacity:1}}
+    @keyframes slideIn{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
     </style>
 
-    <script src="chatbot-hf.js"></script>
+    <script src="chatbot.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
