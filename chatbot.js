@@ -232,50 +232,6 @@ function generateSmartResponse(msg) {
   // Default
   return "I'm Shivam Kumar, an AI Developer! I can tell you about my AI and GenAI skills including LLMs, RAG, DeepEval, and LangGraph. I can share details about my work experience at Infosys over the past 3 years, my AI projects like the RAG-based chatbot and LLM evaluation framework, my education including my MBA from IIT Patna, my certifications from Google, Microsoft, and Infosys, my machine learning and data engineering expertise, my cloud and Azure experience, or how to contact me. What would you like to know?";
 }
-  
-  // Detailed Projects
-  if (lower.includes('project') || lower.includes('rag') || lower.includes('chatbot') || lower.includes('deepeval') || lower.includes('langgraph')) {
-    return "Shivam's AI Projects Portfolio:\n\n1️⃣ AI Portfolio Chatbot (RAG-Based System)\n• Built AI chatbot for portfolio website using Retrieval-Augmented Generation\n• Implemented vector embeddings & semantic search\n• Designed prompt templates to reduce hallucination\n• Integrated REST APIs for dynamic queries\n• Cloud-ready deployment architecture\nTech: Python, LLM APIs, RAG, Vector Embeddings, Prompt Engineering\n\n2️⃣ LLM Evaluation Framework (DeepEval)\n• Automated LLM evaluation pipelines\n• Measures faithfulness, relevancy, hallucination metrics\n• Structured benchmarking test cases\n• Systematic evaluation feedback loops\nTech: Python, DeepEval, LLM Testing, AI Evaluation\n\n3️⃣ Multi-Agent Workflow (LangGraph)\n• Multi-step LLM workflow orchestration\n• Task-specific agents for query understanding\n• Agent-based logic for structured reasoning\n• Response refinement & generation\nTech: Python, LangGraph, LLM APIs, Agent Orchestration";
-  }
-  
-  // Contact
-  if (lower.includes('contact') || lower.includes('email') || lower.includes('phone') || lower.includes('reach') || lower.includes('hire') || lower.includes('linkedin')) {
-    return "📞 Contact Shivam Kumar:\n\n📧 Email: shivamkumar797977@gmail.com\n📱 Phone: +91 7979779685\n📍 Location: Delhi, India\n💼 LinkedIn: linkedin.com/in/shivamsavarn\n🌐 Portfolio: shivamsavarn.netlify.app\n\nShivam is open to new opportunities in AI/ML, Python Development, and Data Engineering roles. Feel free to reach out!";
-  }
-  
-  // Certifications
-  if (lower.includes('certification') || lower.includes('certified') || lower.includes('certificate')) {
-    return "Shivam's Professional Certifications:\n\n🏆 Google Data Analytics Professional Certificate\n   Issued by: Google\n   Focus: Data analysis, visualization, SQL\n\n🏆 DP-900: Azure Data Fundamentals\n   Issued by: Microsoft\n   Focus: Core data concepts, Azure data services\n\n🏆 AI-900: Azure AI Fundamentals\n   Issued by: Microsoft\n   Focus: AI workloads, ML principles\n\n🏆 Google Cloud Certified Cloud Digital Leader\n   Issued by: Google\n   Focus: Cloud concepts, Google Cloud services\n\n🏆 Infosys Certified Generative AI Professional\n   Issued by: Infosys\n   Focus: GenAI, LLMs, prompt engineering\n\nThese certifications validate expertise in AI, data, and cloud technologies!";
-  }
-  
-  // Achievements
-  if (lower.includes('achievement') || lower.includes('award') || lower.includes('recognition')) {
-    return "Shivam's Achievements & Recognition:\n\n🏆 Infosys Rise Insta Award\nRecognized for delivering accurate, actionable insights through SQL/Python analysis and Power BI reporting. This award acknowledges exceptional performance in data-driven decision making and technical excellence.";
-  }
-  
-  // Languages
-  if (lower.includes('language') || lower.includes('speak')) {
-    return "Languages Shivam speaks:\n\n🗣️ English - Fluent (Professional working proficiency)\n🗣️ Hindi - Native (Mother tongue)\n\nComfortable communicating in both languages for professional and personal interactions.";
-  }
-  
-  // Machine Learning specific
-  if (lower.includes('machine learning') || lower.includes('ml ') || lower.includes('model')) {
-    return "Shivam's Machine Learning Expertise:\n\n📊 Classification Models:\n• Implemented using Scikit-learn\n• Binary and multi-class classification\n\n📈 Regression Models:\n• Linear and non-linear regression\n• Predictive modeling\n\n🎯 Clustering:\n• K-Means clustering for data segmentation\n• Unsupervised learning techniques\n\n🔧 Feature Engineering:\n• Data preprocessing and transformation\n• Feature selection and extraction\n\n✅ Model Evaluation:\n• Performance metrics and validation\n• Cross-validation techniques";
-  }
-  
-  // SQL/Data specific
-  if (lower.includes('sql') || lower.includes('data') || lower.includes('database')) {
-    return "Shivam's SQL & Data Engineering Skills:\n\n💾 Large-Scale Data Processing:\n• Processed 1M+ row datasets\n• Complex joins & aggregations\n• Query optimization\n\n🔄 Data Transformation:\n• ETL pipeline development\n• Data cleaning and preprocessing\n• AI-ready data structuring\n\n📐 Data Modeling:\n• Designed optimized queries\n• Analytical data architectures\n• Structured data pipelines\n\n🛠️ Tools & Technologies:\n• SQL for data manipulation\n• Python (Pandas, NumPy) for processing\n• Automated data workflows";
-  }
-  
-  // Azure/Cloud specific
-  if (lower.includes('azure') || lower.includes('cloud')) {
-    return "Shivam's Cloud & Azure Expertise:\n\n☁️ Azure Services:\n• Azure Container Apps for deployment\n• Cloud-native architecture migration\n• Containerized service deployment\n\n🐳 Docker & Containerization:\n• Container orchestration\n• Microservices architecture\n\n🚀 Deployment & DevOps:\n• CI/CD workflows\n• Git version control\n• Scalable service deployment\n\n📦 Migration Experience:\n• Legacy system to cloud migration\n• Windows to cloud-native environments\n• Azure fundamentals certified";
-  }
-  
-  // Default
-  return "I'm Shivam's comprehensive AI assistant! I can provide detailed information about:\n\n• 🤖 AI & GenAI Skills (LLMs, RAG, DeepEval, LangGraph)\n• 💼 Work Experience at Infosys (3+ years)\n• 🚀 AI Projects (Chatbot, LLM Evaluation, Multi-Agent)\n• 🎓 Education (IIT Patna MBA, MCA, BCA)\n• 🏆 Certifications (Google, Microsoft, Infosys)\n• 🧠 Machine Learning & Data Engineering\n• ☁️ Cloud & Azure Expertise\n• 📞 Contact Information\n\nAsk me anything specific!";
-}
 
 function addMessage(text, sender) {
   const messagesDiv = document.getElementById('chatbot-messages');
