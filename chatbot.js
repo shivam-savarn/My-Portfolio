@@ -356,8 +356,14 @@ function updateSpeakerButton() {
 
 function toggleChatbot() {
   const container = document.getElementById('chatbot-container');
+  const greeting = document.getElementById('ai-greeting');
   const isOpen = container.style.display === 'flex';
   container.style.display = isOpen ? 'none' : 'flex';
+  
+  // Hide greeting when chatbot opens, show when it closes
+  if (greeting) {
+    greeting.style.display = isOpen ? 'block' : 'none';
+  }
   
   if (!isOpen && document.getElementById('chatbot-messages').children.length === 0) {
     const welcomeMsg = "Hi! I'm Shivam Kumar, an AI Developer. Ask me anything about my AI/GenAI skills, experience, or projects!";
