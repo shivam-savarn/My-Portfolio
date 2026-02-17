@@ -429,7 +429,7 @@
     <!-- Chatbot -->
     <div id="chatbot-container" style="display:none;position:fixed;bottom:100px;right:30px;width:380px;height:550px;background:white;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.2);flex-direction:column;z-index:999">
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:20px;border-radius:15px 15px 0 0;display:flex;justify-content:space-between;align-items:center">
-            <h3 style="margin:0;font-size:18px">💬 Ask Me Anything</h3>
+            <h3 style="margin:0;font-size:18px">🎤 Shivam - AI Voice Assistant</h3>
             <button onclick="toggleChatbot()" style="background:none;border:none;color:white;font-size:24px;cursor:pointer">✕</button>
         </div>
         <div id="chatbot-messages" style="flex:1;overflow-y:auto;padding:20px;background:#f5f5f5"></div>
@@ -438,9 +438,19 @@
             <button onclick="quickQuestion('Tell me about projects')" style="background:#f0f0f0;border:none;padding:8px 12px;border-radius:20px;font-size:12px;cursor:pointer">Projects?</button>
             <button onclick="quickQuestion('Contact info')" style="background:#f0f0f0;border:none;padding:8px 12px;border-radius:20px;font-size:12px;cursor:pointer">Contact?</button>
         </div>
-        <div style="display:flex;padding:20px;background:white;border-radius:0 0 15px 15px;border-top:1px solid #eee">
-            <input id="chatbot-input" type="text" placeholder="Type your question..." style="flex:1;padding:12px;border:1px solid #ddd;border-radius:25px;outline:none;font-size:14px">
-            <button onclick="sendMessage()" style="margin-left:10px;padding:12px 24px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;border:none;border-radius:25px;cursor:pointer;font-weight:600">Send</button>
+        <div style="display:flex;padding:20px;background:white;border-radius:0 0 15px 15px;border-top:1px solid #eee;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:8px">
+                <label style="display:flex;align-items:center;gap:5px;font-size:12px;color:#666">
+                    <input type="checkbox" id="auto-speak" style="cursor:pointer">
+                    Auto-speak responses
+                </label>
+            </div>
+            <div style="display:flex;gap:10px">
+                <button id="voice-btn" onclick="startVoiceInput()" style="padding:12px;background:#f0f0f0;border:1px solid #ddd;border-radius:25px;cursor:pointer;font-size:20px" title="Start voice input">🎤</button>
+                <input id="chatbot-input" type="text" placeholder="Type or speak your question..." style="flex:1;padding:12px;border:1px solid #ddd;border-radius:25px;outline:none;font-size:14px">
+                <button id="speaker-btn" onclick="toggleSpeech()" style="padding:12px;background:#f0f0f0;border:1px solid #ddd;border-radius:25px;cursor:pointer;font-size:20px" title="Speak last message">🔊</button>
+                <button onclick="sendMessage()" style="padding:12px 24px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;border:none;border-radius:25px;cursor:pointer;font-weight:600">Send</button>
+            </div>
         </div>
     </div>
     <button onclick="toggleChatbot()" style="position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border:none;color:white;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:1000">💬</button>
@@ -457,7 +467,7 @@
     @keyframes blink{0%,60%,100%{opacity:0.3}30%{opacity:1}}
     </style>
 
-    <script src="chatbot.js"></script>
+    <script src="chatbot-hf.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

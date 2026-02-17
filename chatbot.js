@@ -100,6 +100,38 @@ Answer any questions about Shivam's background, skills, experience, projects, ed
 
 let conversationHistory = [];
 let isTyping = false;
+let recognition = null;
+let synthesis = window.speechSynthesis;
+let isListening = false;
+let isSpeaking = false;
+let lastInputWasVoice = false; // Track if last input was voice
+
+// Initialize Speech Recognition
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  recognition = new SpeechRecognition();
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.lang = 'en-US';
+  
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    document.getElementById('chatbot-input').value = transcript;
+    lastInputWasVoice = true; // Mark that voice was used
+    sendMessage();
+  };
+  
+  recognition.onend = () => {
+    isListening = false;
+    updateVoiceButton();
+  };
+  
+  recognition.onerror = (event) => {
+    console.error('Speech recognition error:', event.error);
+    isListening = false;
+    updateVoiceButton();
+  };
+}
 
 async function sendToHuggingFace(userMessage) {
   conversationHistory.push({ role: 'user', content: userMessage });
@@ -131,26 +163,75 @@ function generateSmartResponse(msg) {
   
   // Greetings
   if (lower.match(/^(hi|hello|hey|greetings)/)) {
-    return "Hello! 👋 I'm Shivam's AI assistant. I can answer detailed questions about his AI/GenAI expertise, work experience at Infosys, projects (RAG chatbot, LLM evaluation, multi-agent systems), education from IIT Patna, certifications, or how to reach him. What would you like to know?";
+    return "Hello! I'm Shivam Kumar, an AI Developer. I can tell you about my AI/GenAI expertise, work experience at Infosys, projects like RAG chatbot and LLM evaluation, my education from IIT Patna, certifications, or how to reach me. What would you like to know?";
   }
   if (lower.includes('how are you') || lower.includes('how r u')) {
-    return "I'm doing great, thanks for asking! I'm here to help you learn about Shivam Kumar - an AI Developer with 3+ years of experience specializing in Generative AI, LLMs, RAG systems, and Python development. Ask me anything!";
+    return "I'm doing great, thanks for asking! I'm Shivam Kumar, an AI Developer with 3+ years of experience specializing in Generative AI, LLMs, RAG systems, and Python development. Ask me anything about my work!";
   }
   
   // Detailed Skills
   if (lower.includes('skill')) {
-    return "Shivam's comprehensive skill set:\n\n🤖 AI & GenAI:\n• LLMs, RAG Systems, Prompt Engineering\n• Vector Embeddings, Semantic Search\n• DeepEval (LLM evaluation)\n• LangGraph (Multi-agent orchestration)\n\n💻 Python Development:\n• Backend REST APIs, FastAPI\n• Pandas, NumPy for data processing\n• Scikit-learn for ML models\n• Automation & ETL pipelines\n\n🧠 Machine Learning:\n• Classification & Regression models\n• Clustering (K-Means)\n• Feature Engineering\n• Model Evaluation\n\n🗄️ Data Engineering:\n• SQL (1M+ row datasets)\n• Complex joins & aggregations\n• Data transformation pipelines\n• AI-ready data modeling\n\n☁️ Cloud & DevOps:\n• Azure Container Apps\n• Docker containerization\n• Git version control\n• CI/CD workflows";
+    return "My comprehensive skill set includes:\n\nAI & GenAI: I work with LLMs, RAG Systems, Prompt Engineering, Vector Embeddings, Semantic Search, DeepEval for LLM evaluation, and LangGraph for multi-agent orchestration.\n\nPython Development: I build backend REST APIs with FastAPI, process data using Pandas and NumPy, create ML models with Scikit-learn, and develop automation and ETL pipelines.\n\nMachine Learning: I implement Classification and Regression models, use K-Means Clustering, perform Feature Engineering, and conduct Model Evaluation.\n\nData Engineering: I process datasets with over 1 million rows using SQL, handle complex joins and aggregations, build data transformation pipelines, and create AI-ready data models.\n\nCloud & DevOps: I deploy applications on Azure Container Apps, use Docker for containerization, manage code with Git, and implement CI/CD workflows.";
   }
   
   // Detailed Experience
   if (lower.includes('experience') || lower.includes('work') || lower.includes('job') || lower.includes('infosys')) {
-    return "Shivam's Professional Experience:\n\n📍 Senior System Associate at Infosys Ltd.\n📅 Oct 2022 - Present (3+ years)\n\nKey Responsibilities:\n• Engineers scalable Python backend APIs for AI-integrated workflows\n• Migrates legacy systems to Azure cloud-native architecture\n• Deploys containerized services via Azure Container Apps\n• Designs SQL pipelines transforming 1M+ row datasets into AI-ready formats\n• Builds automated data preprocessing & feature engineering pipelines\n• Develops modular RESTful APIs for system integration\n• Implements monitoring & logging solutions for system reliability\n\n🏆 Achievement: Received Infosys Rise Insta Award for delivering accurate insights through SQL/Python analysis and Power BI reporting";
+    return "I'm currently working as a Senior System Associate at Infosys Limited since October 2022. That's over 3 years now.\n\nIn my role, I engineer scalable Python backend APIs for AI-integrated workflows, migrate legacy systems to Azure cloud-native architecture, and deploy containerized services via Azure Container Apps.\n\nI also design SQL pipelines that transform datasets with over 1 million rows into AI-ready formats, build automated data preprocessing and feature engineering pipelines, develop modular RESTful APIs for system integration, and implement monitoring and logging solutions for system reliability.\n\nI'm proud to have received the Infosys Rise Insta Award for delivering accurate insights through SQL and Python analysis and Power BI reporting.";
   }
   
   // Detailed Education
   if (lower.includes('education') || lower.includes('degree') || lower.includes('study') || lower.includes('iit') || lower.includes('mba')) {
-    return "Shivam's Educational Background:\n\n🎓 Executive MBA (Data Science)\nIIT Patna | Expected Dec 2026\nFocus: Advanced AI, Data Science, Business Analytics\n\n🎓 Master of Computer Applications (MCA)\nChandigarh University, Mohali | July 2024\nFocus: Software Development, Algorithms, Database Systems\n\n🎓 Bachelor of Computer Applications (BCA)\nSOA University, Odisha | June 2022\nFocus: Programming, Web Development, Computer Fundamentals\n\nContinuously upgrading skills with cutting-edge AI and Data Science education!";
+    return "I'm currently pursuing an Executive MBA in Data Science from IIT Patna, expected to complete in December 2026. The program focuses on Advanced AI, Data Science, and Business Analytics.\n\nI completed my Master of Computer Applications from Chandigarh University in Mohali in July 2024, where I focused on Software Development, Algorithms, and Database Systems.\n\nI also hold a Bachelor of Computer Applications from SOA University in Odisha, which I completed in June 2022. That program covered Programming, Web Development, and Computer Fundamentals.\n\nI'm continuously upgrading my skills with cutting-edge AI and Data Science education.";
   }
+  
+  // Detailed Projects
+  if (lower.includes('project') || lower.includes('rag') || lower.includes('chatbot') || lower.includes('deepeval') || lower.includes('langgraph')) {
+    return "I've worked on several exciting AI projects.\n\nFirst, I built an AI Portfolio Chatbot using RAG, which is a Retrieval-Augmented Generation based system. I integrated it into my portfolio website to answer questions about my experience, skills, and projects. I implemented vector embeddings and semantic search, designed prompt templates to reduce hallucination, integrated REST APIs for dynamic queries, and deployed it using cloud-ready architecture. I used Python, LLM APIs, RAG, Vector Embeddings, and Prompt Engineering.\n\nSecond, I created an LLM Evaluation Framework using DeepEval. I designed automated pipelines to measure faithfulness, relevancy, and hallucination metrics. I created structured benchmarking test cases to compare multiple model outputs and improved prompt reliability using systematic evaluation feedback loops.\n\nThird, I prototyped a Multi-Agent Workflow using LangGraph. I orchestrated multi-step LLM workflows with task-specific agents for query understanding, designed agent-based logic for structured reasoning, and explored response refinement and generation. I used Python, LangGraph, and LLM APIs for agent orchestration.";
+  }
+  
+  // Contact
+  if (lower.includes('contact') || lower.includes('email') || lower.includes('phone') || lower.includes('reach') || lower.includes('hire') || lower.includes('linkedin')) {
+    return "You can reach me at shivamkumar797977@gmail.com or call me at +91 7979779685. I'm based in Delhi, India. You can also connect with me on LinkedIn at linkedin.com/in/shivamsavarn or visit my portfolio at shivamsavarn.netlify.app. I'm open to new opportunities in AI, Machine Learning, Python Development, and Data Engineering roles. Feel free to reach out!";
+  }
+  
+  // Certifications
+  if (lower.includes('certification') || lower.includes('certified') || lower.includes('certificate')) {
+    return "I hold several professional certifications.\n\nI have the Google Data Analytics Professional Certificate from Google, which focuses on data analysis, visualization, and SQL.\n\nI'm certified in DP-900 Azure Data Fundamentals from Microsoft, covering core data concepts and Azure data services.\n\nI also have AI-900 Azure AI Fundamentals from Microsoft, which covers AI workloads and machine learning principles.\n\nI'm a Google Cloud Certified Cloud Digital Leader, which validates my knowledge of cloud concepts and Google Cloud services.\n\nAnd I'm an Infosys Certified Generative AI Professional, which focuses on GenAI, LLMs, and prompt engineering.\n\nThese certifications validate my expertise in AI, data, and cloud technologies.";
+  }
+  
+  // Achievements
+  if (lower.includes('achievement') || lower.includes('award') || lower.includes('recognition')) {
+    return "I received the Infosys Rise Insta Award, which recognized me for delivering accurate, actionable insights through SQL and Python analysis and Power BI reporting. This award acknowledges exceptional performance in data-driven decision making and technical excellence.";
+  }
+  
+  // Languages
+  if (lower.includes('language') || lower.includes('speak')) {
+    return "I speak English fluently with professional working proficiency, and Hindi is my native language. I'm comfortable communicating in both languages for professional and personal interactions.";
+  }
+  
+  // Machine Learning specific
+  if (lower.includes('machine learning') || lower.includes('ml ') || lower.includes('model')) {
+    return "My Machine Learning expertise includes several areas.\n\nFor Classification, I've implemented models using Scikit-learn for both binary and multi-class classification problems.\n\nFor Regression, I work with linear and non-linear regression for predictive modeling.\n\nI use K-Means clustering for data segmentation and other unsupervised learning techniques.\n\nI'm experienced in Feature Engineering, including data preprocessing, transformation, feature selection, and extraction.\n\nAnd for Model Evaluation, I use various performance metrics, validation techniques, and cross-validation.";
+  }
+  
+  // SQL/Data specific
+  if (lower.includes('sql') || lower.includes('data') || lower.includes('database')) {
+    return "My SQL and Data Engineering skills are quite comprehensive.\n\nI've processed datasets with over 1 million rows, handling complex joins, aggregations, and query optimization.\n\nI develop ETL pipelines, perform data cleaning and preprocessing, and structure data to be AI-ready.\n\nI design optimized queries, create analytical data architectures, and build structured data pipelines.\n\nI use SQL for data manipulation, Python with Pandas and NumPy for processing, and create automated data workflows.";
+  }
+  
+  // Azure/Cloud specific
+  if (lower.includes('azure') || lower.includes('cloud')) {
+    return "I have extensive experience with Cloud and Azure technologies.\n\nI work with Azure Container Apps for deployment, handle cloud-native architecture migration, and deploy containerized services.\n\nI use Docker for container orchestration and microservices architecture.\n\nI implement CI/CD workflows, use Git for version control, and handle scalable service deployment.\n\nI've migrated legacy systems to the cloud, moved applications from Windows to cloud-native environments, and I'm Azure fundamentals certified.";
+  }
+  
+  // Who are you
+  if (lower.includes('who are you') || lower.includes('introduce yourself')) {
+    return "I'm Shivam Kumar, an AI Developer with over 3 years of experience in Python, data engineering, and analytics. I specialize in building Generative AI solutions using LLM frameworks. I've developed RAG-based chatbot systems and implemented LLM evaluation pipelines using DeepEval. I have a strong foundation in traditional machine learning and data modeling using SQL. Currently, I'm working as a Senior System Associate at Infosys and pursuing my Executive MBA in Data Science from IIT Patna.";
+  }
+  
+  // Default
+  return "I'm Shivam Kumar, an AI Developer! I can tell you about my AI and GenAI skills including LLMs, RAG, DeepEval, and LangGraph. I can share details about my work experience at Infosys over the past 3 years, my AI projects like the RAG-based chatbot and LLM evaluation framework, my education including my MBA from IIT Patna, my certifications from Google, Microsoft, and Infosys, my machine learning and data engineering expertise, my cloud and Azure experience, or how to contact me. What would you like to know?";
+}
   
   // Detailed Projects
   if (lower.includes('project') || lower.includes('rag') || lower.includes('chatbot') || lower.includes('deepeval') || lower.includes('langgraph')) {
@@ -200,7 +281,14 @@ function addMessage(text, sender) {
   const messagesDiv = document.getElementById('chatbot-messages');
   const msgDiv = document.createElement('div');
   msgDiv.className = `chat-message ${sender}`;
-  msgDiv.textContent = text;
+  
+  // Add voice indicator for voice messages
+  if (sender === 'user' && lastInputWasVoice) {
+    msgDiv.innerHTML = `<span style="font-size:12px;opacity:0.7">🎤 </span>${text}`;
+  } else {
+    msgDiv.textContent = text;
+  }
+  
   messagesDiv.appendChild(msgDiv);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
@@ -224,7 +312,90 @@ async function sendMessage() {
   
   document.getElementById('typing-indicator')?.remove();
   addMessage(response, 'bot');
+  
+  // Auto-speak ONLY if voice input was used OR auto-speak is checked
+  if (lastInputWasVoice || document.getElementById('auto-speak')?.checked) {
+    speakText(response);
+  }
+  
+  // Reset voice flag after response
+  lastInputWasVoice = false;
   isTyping = false;
+}
+
+function startVoiceInput() {
+  if (!recognition) {
+    alert('Voice input is not supported in your browser. Please use Chrome or Edge.');
+    return;
+  }
+  
+  if (isListening) {
+    recognition.stop();
+    isListening = false;
+  } else {
+    recognition.start();
+    isListening = true;
+  }
+  updateVoiceButton();
+}
+
+function speakText(text) {
+  if (!synthesis) return;
+  
+  // Stop any ongoing speech
+  synthesis.cancel();
+  
+  // Remove emojis and special characters for better speech
+  const cleanText = text.replace(/[🤖💻🧠🗄️☁️📍📅🏆🎓📧📱📍💼🌐🏆🗣️📊📈🎯🔧✅💾🔄📐🛠️🐳🚀📦]/g, '')
+                       .replace(/•/g, '')
+                       .replace(/\n+/g, '. ');
+  
+  const utterance = new SpeechSynthesisUtterance(cleanText);
+  utterance.rate = 0.9;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+  
+  utterance.onstart = () => {
+    isSpeaking = true;
+    updateSpeakerButton();
+  };
+  
+  utterance.onend = () => {
+    isSpeaking = false;
+    updateSpeakerButton();
+  };
+  
+  synthesis.speak(utterance);
+}
+
+function toggleSpeech() {
+  if (isSpeaking) {
+    synthesis.cancel();
+    isSpeaking = false;
+    updateSpeakerButton();
+  } else {
+    const messages = document.querySelectorAll('.chat-message.bot');
+    if (messages.length > 0) {
+      const lastMessage = messages[messages.length - 1].textContent;
+      speakText(lastMessage);
+    }
+  }
+}
+
+function updateVoiceButton() {
+  const btn = document.getElementById('voice-btn');
+  if (btn) {
+    btn.innerHTML = isListening ? '🔴' : '🎤';
+    btn.title = isListening ? 'Stop listening' : 'Start voice input';
+  }
+}
+
+function updateSpeakerButton() {
+  const btn = document.getElementById('speaker-btn');
+  if (btn) {
+    btn.innerHTML = isSpeaking ? '🔇' : '🔊';
+    btn.title = isSpeaking ? 'Stop speaking' : 'Speak last message';
+  }
 }
 
 function toggleChatbot() {
@@ -233,7 +404,17 @@ function toggleChatbot() {
   container.style.display = isOpen ? 'none' : 'flex';
   
   if (!isOpen && document.getElementById('chatbot-messages').children.length === 0) {
-    addMessage("Hi! I'm Shivam's AI assistant. Ask me anything about his AI/GenAI skills, experience, or projects!", 'bot');
+    const welcomeMsg = "Hi! I'm Shivam Kumar, an AI Developer. Ask me anything about my AI/GenAI skills, experience, or projects!";
+    addMessage(welcomeMsg, 'bot');
+    if (document.getElementById('auto-speak')?.checked) {
+      speakText(welcomeMsg);
+    }
+  }
+  
+  // Stop any ongoing speech when closing
+  if (isOpen && synthesis) {
+    synthesis.cancel();
+    isSpeaking = false;
   }
 }
 
